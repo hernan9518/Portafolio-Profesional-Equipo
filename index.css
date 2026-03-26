@@ -1,202 +1,414 @@
-    :root {
-        --rojo: #f21642;
-        --oscuro: rgba(0, 0, 0, 0.97);
-        --claro: #eceae8;
-    }
+:root {
+    --rojo: #f21642;
+    --oscuro: rgba(0, 0, 0, 0.97);
+    --claro: #eceae8;
+    --gris-claro: #f8f9fa;
+}
 
-    /* ── NAVBAR ── */
-    .navbar {
-        background-color: var(--oscuro) !important;
-    }
+/* ── NAVBAR ── */
+.navbar {
+    background-color: var(--oscuro) !important;
+}
 
-    .navbar-brand {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.5rem;
-        color: var(--claro) !important;
-        letter-spacing: 0.03em;
-    }
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--claro) !important;
+    letter-spacing: 0.03em;
+}
 
-    .navbar-brand span {
-        color: var(--rojo);
-    }
+.navbar-brand span {
+    color: var(--rojo);
+}
 
+.nav-link {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.92rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--claro) !important;
+    padding: 0.4rem 1rem !important;
+    transition: color 0.2s;
+}
 
-    .nav-link {
-        font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        font-size: 0.92rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--claro) !important;
-        padding: 0.4rem 1rem !important;
-        transition: color 0.2s;
-    }
+.nav-link:hover,
+.nav-link.active {
+    color: var(--rojo) !important;
+}
 
-    .nav-link:hover,
-    .nav-link.active {
-        color: var(--rojo) !important;
-    }
+.navbar-toggler {
+    border: none;
+    outline: none;
+    box-shadow: none !important;
+}
 
-    .navbar-toggler {
-        border: none;
-        outline: none;
-        box-shadow: none !important;
-    }
+/* ── HERO ── */
+.hero {
+    position: relative;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/1/17/Digital_rain_animation_small_letters_clear.gif') center center / cover no-repeat;
+    min-height: 320px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 10, 10, 0.52);
+}
 
-    /* ── HERO ── */
-    .hero {
-        position: relative;
-        background: url('https://upload.wikimedia.org/wikipedia/commons/1/17/Digital_rain_animation_small_letters_clear.gif') center center / cover no-repeat;
-        min-height: 320px;
-        height: 500px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 1.5rem 5rem;
+}
 
-    .hero::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(15, 10, 10, 0.52);
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 9vw, 3.8rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.5rem;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* ── TEAM SECTION ── */
+.team-section {
+    background: linear-gradient(var(--oscuro), var(--oscuro), #555, var(--claro));
+    min-height: 680px;
+    padding-bottom: 3rem;
+}
+
+/* Cards overlap hero by pulling them up */
+.team-cards-wrapper {
+    position: relative;
+    margin-top: -90px;
+}
+
+.team-card {
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    border-radius: 20px;
+    background: #fff;
+    text-align: center;
+    margin: 1rem;
+    padding-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.team-card-img-wrap {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.team-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.team-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--oscuro);
+    margin: 1.1rem 0 0.25rem;
+    letter-spacing: 0.01em;
+}
+
+.team-card p.role {
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 0.9rem;
+}
+
+.social-icons a {
+    color: var(--oscuro);
+    font-size: 1.1rem;
+    margin: 0 0.3rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.social-icons a:hover {
+    color: var(--rojo);
+}
+
+/* ── SKILLS SECTION (HABILIDADES) ── */
+.skills-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--oscuro);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--rojo);
+}
+
+.section-header p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 1rem auto 0;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.skill-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.skill-card i {
+    font-size: 3rem;
+    color: var(--rojo);
+    margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--oscuro);
+}
+
+.skill-card p {
+    font-family: 'Lato', sans-serif;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.skill-level {
+    background: #e9ecef;
+    border-radius: 10px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    background: var(--rojo);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.6s ease;
+}
+
+/* ── PROJECTS SECTION ── */
+.projects-section {
+    background: white;
+    padding: 80px 0;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--oscuro);
+}
+
+.project-info p {
+    font-family: 'Lato', sans-serif;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.project-tags span {
+    background: var(--gris-claro);
+    color: var(--oscuro);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--rojo);
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    transition: gap 0.3s ease;
+}
+
+.project-link:hover {
+    gap: 12px;
+    color: var(--rojo);
+}
+
+.project-link i {
+    transition: transform 0.3s ease;
+}
+
+/* ── FOOTER NOTE ── */
+.footer-tittle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--claro) !important;
+    letter-spacing: 0.03em;
+}
+
+.footer-tittle span {
+    color: var(--rojo);
+}
+
+/* ── RESPONSIVE TWEAKS ── */
+@media (max-width: 767px) {
+    .team-cards-wrapper {
+        margin-top: -40px;
     }
 
     .hero-content {
-        position: relative;
-        z-index: 1;
-        padding: 3rem 1.5rem 5rem;
+        padding-bottom: 3.5rem;
     }
 
-    .hero-content h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(2.2rem, 9vw, 3.8rem);
-        font-weight: 700;
-        color: #fff;
-        letter-spacing: 0.01em;
-        line-height: 1.15;
-        margin-bottom: 1rem;
+    .section-header h2 {
+        font-size: 2rem;
     }
 
-    .hero-content p {
-        font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.85);
-        font-size: 1.5rem;
-        max-width: 520px;
-        margin: 0 auto;
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    /* ── TEAM SECTION ── */
-    .team-section {
-
-        background: linear-gradient(var(--oscuro), var(--oscuro), #555, var(--claro));
-        height: 680px;
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    /* Cards overlap hero by pulling them up */
-    .team-cards-wrapper {
+    .skill-card {
+        padding: 25px;
+    }
+}
 
-        position: relative;
-        margin-top: -90px;
-
-
+@media (max-width: 991px) and (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .team-card {
-        height: 100%;
-        width: 100%;
-        padding: 10%;
-        border-radius: 20px;
-        background: #fff;
-        text-align: center;
-        margin: 1rem;
-        padding-bottom: 1.5rem;
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
-
-    .team-card-img-wrap {
-        width: 100%;
-        aspect-ratio: 3 / 4;
-        overflow: hidden;
-    }
-
-    .team-card-img-wrap img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.45s ease;
-    }
-
-    .team-card:hover {
-        transform: scale(1.04);
-    }
-
-    .team-card h3 {
-        font-family: 'Playfair Display', serif;
-        font-weight: 700;
-        font-size: 1.2rem;
-        color: var(--oscuro);
-        margin: 1.1rem 0 0.25rem;
-        letter-spacing: 0.01em;
-    }
-
-    .team-card p.role {
-        font-family: 'Lato', sans-serif;
-        font-style: italic;
-        font-weight: 300;
-        color: #555;
-        font-size: 0.95rem;
-        margin-bottom: 0.9rem;
-    }
-
-    .social-icons a {
-        color: var(--oscuro);
-        font-size: 1.1rem;
-        margin: 0 0.3rem;
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-
-    .social-icons a:hover {
-        color: var(--rojo);
-    }
-
-
-    /* ── FOOTER NOTE ── */
-    .footer-note {
-        text-align: center;
-        padding: 1.5rem 1rem 2rem;
-        font-family: 'Lato', sans-serif;
-        font-size: 0.82rem;
-        color: #888;
-    }
-
-    .footer-note a {
-        color: var(--rojo);
-        text-decoration: underline;
-    }
-
-    .footer-tittle {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.5rem;
-        color: var(--claro) !important;
-        letter-spacing: 0.03em;
-    }
-
-
-    .footer-tittle span {
-        color: var(--rojo);
-    }
-
-    /* ── RESPONSIVE TWEAKS ── */
-    @media (max-width: 767px) {
-        .team-cards-wrapper {
-            margin-top: -40px;
-        }
-
-        .hero-content {
-            padding-bottom: 3.5rem;
-        }
-    }
+}
